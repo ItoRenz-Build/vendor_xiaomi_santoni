@@ -69,26 +69,6 @@ prebuilt_etc_xml {
 }
 
 cc_prebuilt_library_shared {
-	name: "libqmiservices",
-	owner: "xiaomi",
-	strip: {
-		none: true,
-	},
-	target: {
-		android_arm: {
-			srcs: ["proprietary/vendor/lib/libqmiservices.so"],
-		},
-		android_arm64: {
-			srcs: ["proprietary/vendor/lib64/libqmiservices.so"],
-		},
-	},
-	compile_multilib: "both",
-	check_elf_files: false,
-	prefer: true,
-	soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
 	name: "libsdm-disp-vndapis",
 	owner: "xiaomi",
 	strip: {
@@ -148,7 +128,7 @@ android_app_import {
 	apk: "proprietary/vendor/app/CneApp/CneApp.apk",
 	certificate: "platform",
 	dex_preopt: {
-		enabled: true,
+		enabled: false,
 	},
 	soc_specific: true,
 }
@@ -159,7 +139,7 @@ android_app_import {
 	apk: "proprietary/vendor/app/IWlanService/IWlanService.apk",
 	certificate: "platform",
 	dex_preopt: {
-		enabled: true,
+		enabled: false,
 	},
 	soc_specific: true,
 }
@@ -170,7 +150,7 @@ android_app_import {
 	apk: "proprietary/vendor/app/TimeService/TimeService.apk",
 	certificate: "platform",
 	dex_preopt: {
-		enabled: true,
+		enabled: false,
 	},
 	soc_specific: true,
 }
@@ -181,7 +161,7 @@ android_app_import {
 	apk: "proprietary/product/app/PowerOffAlarm/PowerOffAlarm.apk",
 	certificate: "platform",
 	dex_preopt: {
-		enabled: true,
+		enabled: false,
 	},
 	product_specific: true,
 }
@@ -192,7 +172,7 @@ android_app_import {
 	apk: "proprietary/system_ext/app/QtiTelephonyService/QtiTelephonyService.apk",
 	certificate: "platform",
 	dex_preopt: {
-		enabled: true,
+		enabled: false,
 	},
 	system_ext_specific: true,
 }
@@ -203,7 +183,7 @@ android_app_import {
 	apk: "proprietary/system_ext/app/embms/embms.apk",
 	certificate: "platform",
 	dex_preopt: {
-		enabled: true,
+		enabled: false,
 	},
 	system_ext_specific: true,
 }
@@ -214,7 +194,7 @@ android_app_import {
 	apk: "proprietary/system_ext/app/imssettings/imssettings.apk",
 	certificate: "platform",
 	dex_preopt: {
-		enabled: true,
+		enabled: false,
 	},
 	system_ext_specific: true,
 }
@@ -225,7 +205,7 @@ android_app_import {
 	apk: "proprietary/system_ext/app/uceShimService/uceShimService.apk",
 	certificate: "platform",
 	dex_preopt: {
-		enabled: true,
+		enabled: false,
 	},
 	system_ext_specific: true,
 }
@@ -236,7 +216,7 @@ android_app_import {
 	apk: "proprietary/system_ext/priv-app/ims/ims.apk",
 	certificate: "platform",
 	dex_preopt: {
-		enabled: true,
+		enabled: false,
 	},
 	privileged: true,
 	system_ext_specific: true,
@@ -248,9 +228,23 @@ android_app_import {
 	apk: "proprietary/system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk",
 	certificate: "platform",
 	dex_preopt: {
-		enabled: true,
+		enabled: false,
 	},
 	privileged: true,
+	system_ext_specific: true,
+}
+
+dex_import {
+	name: "embmslibrary",
+	owner: "xiaomi",
+	jars: ["proprietary/system_ext/framework/embmslibrary.jar"],
+	system_ext_specific: true,
+}
+
+dex_import {
+	name: "qcrilhook",
+	owner: "xiaomi",
+	jars: ["proprietary/system_ext/framework/qcrilhook.jar"],
 	system_ext_specific: true,
 }
 
